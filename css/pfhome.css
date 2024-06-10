@@ -1,0 +1,136 @@
+@import url("https://cdn.jsdelivr.net/npm/galmuri/dist/galmuri.css");
+html {
+    height:100%;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    background-color: #000;
+    color: #fff;
+}
+.display_none {
+    display: none;
+}
+body {
+    height:100%;
+    margin:0;
+    border:0;
+    padding:0;
+    font-family: "GalmuriMono11", monospace;
+}
+.wrap {
+    position:relative;
+    top:0;
+    width:100%;
+    height:100%;
+    transition: 0.7s;
+}
+.container {
+    width:80%;
+    height:100%;
+    padding: 15px;
+    transition: 3s;
+}
+
+/* 헤더 - 홈에서는 안 보이다가 두 번째 페이지부터는 오른쪽에 길게 고정시키기 */
+.header {
+    width: 20%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    color: #fff;
+    padding: 10px;
+    border-left: 3px dashed;
+}
+.header > h5 {
+    margin-bottom: 20px;
+}
+.pf_box {
+    width: 70%;
+    margin: 20px auto;
+}
+.pf_box > img {
+    width: 100%;
+    border-radius: 50%;
+    box-shadow: 0 0 0 7px #fff;
+}
+.menu_tap {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.menu_tap > li {
+    cursor: pointer;
+}
+.menu_tap > li:hover {
+    text-decoration: underline;
+}
+/* 첫번째 페이지  */
+.title_box {
+    position: relative;
+    top: 80vh;
+}
+.main_title {
+    font-size: 40px;
+    position: absolute;
+    color: transparent;
+}
+.main_title::before {
+    content: "신입 개발자 강경은의 포트폴리오입니다.";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    overflow: hidden;
+    border-right: 3px solid #fff;
+    animation: typing 10s steps(31) infinite;
+}
+@keyframes typing{
+    0% {
+        width: 0%;
+    }
+    50% {
+        width: 100%;
+    }
+    100% {
+        width: 0%;
+    }
+}
+
+/* ///////////// */
+.skill_box {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.skill_icon {
+    width: 120px;
+}
+.skill_bar {
+    display: flex;
+    gap: 5px;
+}
+.skill_value {
+    width: 10px;
+    height: 15px;
+    background-color: #fff;
+}
+/* 포폴///////////// */
+.portfolio_img {
+    width: 100%;
+}
+.portfolio_img > img {
+    width: 100%;
+}
+
+/* 컨택트//////////////////// */
+.contact_box {
+    height: 50px;
+    border-bottom: 2px dashed #fff;
+}
