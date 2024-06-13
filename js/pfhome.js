@@ -11,6 +11,27 @@ function typing(){
 }
 setInterval(typing, 200);
 
+/* 스킬 바 append */
+let skill_bar = document.querySelectorAll('.skill_bar');
+function loadBar(value, target){
+    for(let i=0;i<value;i++){
+        let addDiv=document.createElement('div');
+        addDiv.className='skill_value';
+        target.appendChild(addDiv);
+    }
+}
+loadBar(9, skill_bar[0]);//html
+loadBar(9, skill_bar[1]);//css
+loadBar(8, skill_bar[2]);//js
+loadBar(9, skill_bar[3]);//jq
+loadBar(7, skill_bar[4]);//java
+loadBar(7, skill_bar[5]);//sql
+loadBar(8, skill_bar[6]);//spring
+loadBar(8, skill_bar[7]);//ajax
+
+
+/////////////////
+
 $(document).ready(function(){
     let scholar_his = $('.scholar_his');
     let height = $('#about_me').offset().top;
