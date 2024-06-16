@@ -8,8 +8,8 @@ html {
     padding: 0;
     list-style-type: none;
 }
-.display_none {
-    display: none;
+.opacity_none {
+    opacity: 0;
 }
 body {
     height:100%;
@@ -27,25 +27,34 @@ body {
     transition: 0.7s;
 }
 .container {
-    width:80%;
     height:100%;
     padding: 15px;
     background-color: #000;
     color: #fff;
     transition: 3s;
+    overflow: hidden;
 }
-
+.contents_area {
+    width: 80%;
+}
+a {
+    color: inherit;
+    cursor: url(../img/pointer.png), pointer;
+}
+h1 { margin: 10px 0;}
 /* 헤더 - 홈에서는 안 보이다가 두 번째 페이지부터는 오른쪽에 길게 고정시키기 */
 .header {
     width: 20%;
     height: 100vh;
     position: fixed;
+    z-index: 999;
     top: 0;
     right: 0;
     background-color: #000;
     color: #fff;
     padding: 10px;
     border-left: 3px dashed;
+    transition: 1s;
 }
 .header > h5 {
     margin-bottom: 20px;
@@ -73,14 +82,21 @@ body {
 }
 /* 첫번째 페이지  */
 .title_box {
-    position: relative;
-    top: 80vh;
+    width: 400px;
+    height: 106px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
 }
 .main_title {
     font-size: 40px;
+    color: lime;
 }
 .blink_cursor {
     font-size: 40px;
+    color: lime;
     animation: blink 0.5s infinite;
 }
 @keyframes blink {
@@ -90,19 +106,31 @@ body {
   }
 /* history //////////////// */
 .history {
-    position: relative;
-    
+    transform: translateY(44%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.history > div {
+    border: 2px dashed #fff;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 .scholar_his {
     transition: 1s;
 }
 
 /* ///////////// */
+.skill_outer {
+    padding: 20% 100px;
+}
 .skill_box {
-    margin-bottom: 15px;
+    margin-bottom: 30px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
 }
 .skill_icon {
     width: 120px;
@@ -112,20 +140,95 @@ body {
     gap: 5px;
 }
 .skill_value {
-    width: 10px;
-    height: 15px;
+    width: 15px;
+    height: 20px;
     background-color: #fff;
 }
 /* 포폴///////////// */
+
 .portfolio_img {
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 20px;
 }
-.portfolio_img > img {
+.portfolio_img_tab {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+.portfolio_img_tab li {
+    height: calc(100% / 3);
+}
+.portfolio_img_tab img {
     width: 100%;
+}
+.portfolio_desc {
+    width: 40%;
 }
 
 /* 컨택트//////////////////// */
 .contact_box {
-    height: 50px;
-    border-bottom: 2px dashed #fff;
+    padding: 20% 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-evenly;
+}
+.contact_left {
+    width: 50%;
+}
+.email {
+    margin-bottom: 10px;
+}
+.contact_form{
+    width: 100%;
+    border: 2px dashed #fff;
+    padding: 10px;
+}
+.contact_form input[type="text"],
+.contact_form input[type="email"] {
+    color: #fff;
+    font-family: "GalmuriMono11", monospace;
+    display: block;
+    width: 260px;
+    height: 25px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #fff;
+}
+textarea {
+    font-family: "GalmuriMono11", monospace;
+    display: block;
+    padding: 10px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    width: 260px;
+    height: 10.25em;
+    border: none;
+    resize: none;
+    outline: none;
+}
+input[type="submit"] {
+    display: block;
+    margin: 0 auto;
+    padding: 5px 15px;
+    background-color: transparent;
+    outline: none;
+    border: 2px dashed #fff;
+    color: #fff;
+    cursor: url(../img/pointer.png), pointer;
+}
+.contact_right {
+    display: flex;
+    flex-direction: column;
+    gap: 90px;
+}
+.other_contact {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }

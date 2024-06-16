@@ -33,16 +33,40 @@ loadBar(8, skill_bar[7]);//ajax
 /////////////////
 
 $(document).ready(function(){
-    let scholar_his = $('.scholar_his');
-    let height = $('#about_me').offset().top;
-    
+    let container = $('.container');
+    let offset_array=new Array(container.length);
+    for(let i=0;i<offset_array.length;i++){
+        offset_array[i]=container.eq(i).offset().top;
+    }
+    let menu_li_array = new Array($('.menu_tap > li').length);
+    for(let i=0;i<menu_li_array.length;i++){
+        menu_li_array[i]=$('.menu_tap > li').eq(i).text();
+    }
     $(window).scroll(function(){
-        let scrollTop = $(window).scrollTop();
-        if(scrollTop>height-200) {
-            scholar_his.css({opacity:1})
+        let scroll=$(window).scrollTop();
+        
+        if(scroll >= offset_array[5]) {
+            $('.menu_tap > li').eq(5).text("〉 " + menu_li_array[5]);
+            $('.menu_tap > li').eq(4).text(menu_li_array[4]);
+        } else if(scroll >= offset_array[4]) {
+            $('.menu_tap > li').eq(5).text(menu_li_array[5]);
+            $('.menu_tap > li').eq(4).text("〉 " + menu_li_array[4]);
+            $('.menu_tap > li').eq(3).text(menu_li_array[3]);
+        }else if(scroll >= offset_array[3]) {
+            $('.menu_tap > li').eq(4).text(menu_li_array[4]);
+            $('.menu_tap > li').eq(3).text("〉 " + menu_li_array[3]);
+            $('.menu_tap > li').eq(2).text(menu_li_array[2]);
+        }else if(scroll >= offset_array[2]) {
+            $('.menu_tap > li').eq(3).text(menu_li_array[3]);
+            $('.menu_tap > li').eq(2).text("〉 " + menu_li_array[2]);
+            $('.menu_tap > li').eq(1).text(menu_li_array[1]);
+        }else if(scroll >= offset_array[1]) {
+            $('.menu_tap > li').eq(2).text(menu_li_array[2]);
+            $('.menu_tap > li').eq(1).text("〉 " + menu_li_array[1]);
+            $('.menu_tap > li').eq(0).text(menu_li_array[0]);
         }else {
-            scholar_his.css({opacity:0})
+            $('.menu_tap > li').eq(1).text(menu_li_array[1]);
+            $('.menu_tap > li').eq(0).text("〉 " + menu_li_array[0])
         }
     })
-
 })
